@@ -21,6 +21,8 @@ class SiteSettings(models.Model):
     address = models.CharField(max_length=250, null=True, blank=True, verbose_name="آدرس ما")
     phone = models.CharField(max_length=250, null=True, blank=True, verbose_name="تلفن تماس")
     email = models.CharField(max_length=250, null=True, blank=True, verbose_name="ایمیل")
+    social_instagram = models.CharField(max_length=250, null=True, blank=True, default='https://instagram.com/username', verbose_name='لینک اینستاگرام')
+    social_telegram = models.CharField(max_length=250, null=True, blank=True, default='https://t.me/username', verbose_name='لینک تلگرام')
 
     def __str__(self):
         return self.email
