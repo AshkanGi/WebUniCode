@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Tag, Article, Profile
 from core.models import SiteSettings
 from django.http import JsonResponse
+from django.db.models import F
 from django.template.defaultfilters import truncatewords
 
 
@@ -44,6 +45,7 @@ def article_list(request):
 
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
+    Article.objects.filter(slug=slug).update(views=F('views') + 1)
     categories = Category.objects.all()
     latest_articles = Article.objects.filter(status='published').exclude(slug=article.slug).order_by('-created_at')[:3]
     popular_tags = Tag.objects.all().order_by('-views')[:8]
@@ -52,7 +54,6 @@ def article_detail(request, slug):
         author_profile = Profile.objects.get(user=article.author)
     except Profile.DoesNotExist:
         author_profile = None
-
     context = {
         'article': article,
         'categories': categories,
