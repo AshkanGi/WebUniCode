@@ -2784,13 +2784,15 @@ project single
     align-items: center;
     margin-top: 30px;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .skill-box {
     display: flex;
     align-items: center;
-    width: 90%;
-    height: 30px;
+    width: 95%;
+    height: 50px;
     gap: 20px;
     border-radius: 10px;
     background-color: #6689d0;
@@ -2801,21 +2803,21 @@ project single
     display: flex;
     align-items: center;
     width: 150px;
-    height: 30px;
-    border-radius: 10px;
+    height: 50px;
+    border-radius: 8px;
     background-color: #384dff;
     text-align: center;
 }
 
 .skill-title h5{
     margin-right: 25px;
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
 }
 
 .skill-text p {
     margin-top: 2px;
-    font-size: 13px;
+    font-size: 14px;
     color: #fff;
 }
 
@@ -2831,20 +2833,20 @@ project single
 
 @media all and (max-width: 1199px) {
     .skill-box {
-        width: 85%;
+        width: 100%;
         gap: 50px;
     }
 }
 
 @media all and (max-width: 767px) {
     .skill-box {
-        width: 90%;
+        width: 100%;
         gap: 20px;
     }
 
     .skill-title h5 {
         margin-right: 30px;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .skill-text p {
