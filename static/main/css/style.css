@@ -2584,6 +2584,7 @@ project css
     position: absolute;
     width: 100%;
     height: 100%;
+    color: #4565ff;
     top: 0;
     right: 0;
 }
@@ -2594,6 +2595,7 @@ project css
     right: 15px;
     top: 15px;
     left: 15px;
+    color: #4565ff;
     bottom: 15px;
     border-radius: 8px;
     opacity: 0;
@@ -2603,6 +2605,7 @@ project css
 
 .project-content:hover::before {
     opacity: 0.9;
+    color: #4565ff;
     visibility: visible
 }
 

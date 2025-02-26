@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -18,7 +19,7 @@ class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='projects')
     slug = models.SlugField(max_length=150, unique=True, verbose_name='نامک')
     name = models.CharField(max_length=100, verbose_name='نام مشتری')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
+    created_at = models.DateTimeField(default=timezone.now, verbose_name='تاریخ')
     budget = models.CharField(max_length=100, verbose_name='بودجه')
     project_manager = models.CharField(max_length=60, verbose_name='مدیر پروژه')
     place = models.CharField(max_length=100, verbose_name='محل')

@@ -64,7 +64,7 @@
                                                         {% else %}
                                                             <li><i class="far fa-user-circle"></i>نامعلوم</li>
                                                         {% endif %}
-                                                        <li><i class="far fa-calendar-alt"></i>{{ article.created_at|to_jalali:'%d %B %Y' }}</li>
+                                                        <li><i class="far fa-calendar-alt"></i>{{ article.created_at|to_jalali:'%d / %m / %Y' }}</li>
                                                     </ul>
                                                 </div>
                                                 <p>{{ article.description|truncatewords:10|safe }}</p>
