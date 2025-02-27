@@ -44,9 +44,11 @@
                                     <li>
                                         محل <span>{{ project.place }}</span>
                                     </li>
-                                    <li>
-                                        <a href="{{ project.website }}">سایت اینترنتی <span>{{ project.website }}</span></a>
-                                    </li>
+                                    {% if project.website %}
+                                    	<li>
+                                            <a href="{{ project.website }}">سایت اینترنتی <span>{{ project.website }}</span></a>
+                                        </li>
+                                    {% endif %}
                                     <li>
                                          امتیاز کارفرما
                                         <div class="testimonial-rate">
