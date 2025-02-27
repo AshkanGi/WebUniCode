@@ -110,10 +110,14 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_CONFIGS = {
-    'default':
-        {
-            'toolbar': 'advanced'
-        }
+    'default': {
+        'toolbar': 'advanced',
+        'extraAllowedContent': 'img[!src,alt]{width,height}',
+        'allowedContent': True,
+        'extraPlugins': 'image2',
+        'removePlugins': 'resize',
+        'autoParagraph': False,
+    }
 }
 
 JALALI_DATE_DEFAULTS = {
