@@ -31,7 +31,7 @@
                     <div class="blog-single-content">
                         <div class="blog-thumb-img">
                             {% if article.thumbnail %}
-                                <img src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}" id="single-blog-image">
+                                <img style="max-width: 100%;height: auto;display: block;" src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}" id="single-blog-image">
                             {% else %}
                                 <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:6 }}" id="single-blog-image">
                             {% endif %}

@@ -46,3 +46,16 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class TeamMember(models.Model):
+    full_name = models.CharField(max_length=50, verbose_name='نام کامل')
+    position = models.CharField(max_length=50, verbose_name='جایگاه')
+    image = models.ImageField(upload_to='team', verbose_name='تصویر')
+
+    class Meta:
+        verbose_name = 'عضو تیم'
+        verbose_name_plural = 'اعضای تیم'
+
+    def __str__(self):
+        return self.full_name

@@ -1,10 +1,11 @@
-from .models import Team
+from .models import Team, TeamMember
 from . import models
 from django.contrib import admin
 from jalali_date import datetime2jalali, date2jalali
 from jalali_date.admin import ModelAdminJalaliMixin
 
 admin.site.register(Team)
+admin.site.register(TeamMember)
 
 
 @admin.register(models.SiteSettings)
