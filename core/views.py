@@ -1,6 +1,6 @@
 from django.db.models import Prefetch
 
-from .models import Team
+from .models import Team, TeamMember
 from django.views import View
 from blog.models import Article
 from .forms import ContactUsForm
@@ -19,6 +19,7 @@ class HomeView(View):
         articles = Article.objects.filter(status='published').order_by('-created_at')[:3]
         categories = Category.objects.prefetch_related(Prefetch('projects', queryset=Project.objects.filter(publish=True))).all()
         project = Project.objects.filter(publish=True)
+        team_member = TeamMember.objects.all()
         context = {
             'comments': comments,
             'team': team,
@@ -26,6 +27,7 @@ class HomeView(View):
             'site_settings': site_settings,
             'articles': articles,
             'project': project,
+            'team_member': team_member,
         }
         return render(request, 'core/home.html', context)
 

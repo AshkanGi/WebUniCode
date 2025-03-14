@@ -300,7 +300,7 @@
                     <div class="skill-right">
                         <div class="site-heading mb-3">
                             <h2 class="site-title">
-                                مهارت‌های ما، کلید موفقیت شما! 🚀
+                                مهارت‌های ما، <span> کلید موفقیت</span> شما! 🚀
                             </h2>
                         </div>
                         <p>
@@ -473,7 +473,7 @@
         <div class="row">
             <div class="col-lg-7 mx-auto">
                 <div class="site-heading text-center">
-                    <h2 class="site-title">ما را در <span> در نتیجه کارهایمان </span> قضاوت کنید</h2>
+                    <h2 class="site-title">ما را در <span> نتیجه کارهایمان </span> قضاوت کنید</h2>
                 </div>
                 <div class="filter-controls">
                     <ul class="filter-btns">
@@ -503,6 +503,37 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if team_member %}
+	<div class="team-area bg pt-120 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+                <div class="site-heading text-center">
+                    <h2 class="site-title">با <span>تیم</span> ما آشنا شوید</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            {% for member in team_member %}
+            	<div class="col-md-6 col-lg-4">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img style="height: 450px; width: 400px" src="{{ member.image.url }}" alt="{{ member.full_name }}">
+                    </div>
+                    <div class="team-content">
+                        <div class="team-bio">
+                            <h5><a>{{ member.full_name }}</a></h5>
+                            <span>{{ member.position }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>
