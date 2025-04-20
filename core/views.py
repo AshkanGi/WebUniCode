@@ -1,12 +1,11 @@
-from django.db.models import Prefetch
-
-from .models import Team, TeamMember
 from django.views import View
 from blog.models import Article
 from .forms import ContactUsForm
 from .models import SiteSettings
-from project.models import Category, Project
 from django.contrib import messages
+from .models import Team, TeamMember
+from django.db.models import Prefetch
+from project.models import Category, Project
 from django.shortcuts import render, redirect
 from customer.models import Comment, Newsletter
 

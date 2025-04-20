@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Category, Tag, Article, Profile
+from django.db.models import F
 from core.models import SiteSettings
 from django.http import JsonResponse
-from django.db.models import F
+from .models import Category, Tag, Article, Profile
+from django.shortcuts import render, get_object_or_404
 from django.template.defaultfilters import truncatewords
 
 
@@ -12,10 +12,8 @@ def article_list(request):
     per_page = 6
     start = (page - 1) * per_page
     end = start + per_page
-
     articles = Article.objects.filter(status='published').order_by('-created_at')
     total_count = articles.count()
-
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         articles_page = articles[start:end]
         data = []
@@ -32,9 +30,7 @@ def article_list(request):
             'articles': data,
             'has_more': total_count > end
         })
-
     articles_page = articles[start:end]
-    
     context = {
         'site_settings': site_settings,
         'articles': articles_page,
@@ -54,16 +50,17 @@ def article_detail(request, slug):
         author_profile = Profile.objects.get(user=article.author)
     except Profile.DoesNotExist:
         author_profile = None
+    contact = article.content if article.content else None
     context = {
         'article': article,
         'categories': categories,
         'latest_articles': latest_articles,
         'popular_tags': popular_tags,
         'author_profile': author_profile,
-        'site_settings': site_settings
+        'site_settings': site_settings,
+        'contact': contact,
     }
     return render(request, 'blog/article_detail.html', context)
-
 
 
 def category_article(request, slug):

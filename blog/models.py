@@ -1,9 +1,9 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import format_html
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.urls import reverse
-from django.utils.html import format_html
 
 STATUS = (
     ("draft", "پیش نویس شود"),
@@ -43,6 +43,7 @@ class Article(models.Model):
     category = models.ManyToManyField(Category, related_name='articles', verbose_name='دسته بندی مربوطه')
     title = models.CharField(max_length=150, unique=True, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=150, unique=True, verbose_name='نامک')
+    content = models.TextField(max_length=200, null=True, blank=True, verbose_name='متا دیسکریپشن')
     description = RichTextUploadingField(verbose_name='محتوای مقاله')
     tags = models.ManyToManyField(Tag, blank=True, null=True, related_name='articles', verbose_name='برچسب مربوطه')
     thumbnail = models.ImageField(upload_to='images/articles', blank=True, null=True, verbose_name='تصویر مقاله')

@@ -26,7 +26,7 @@ class TagAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Article)
 class ArticleAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ['author', 'short_title', 'views', 'get_created_jalali', 'status']
+    list_display = ['author', 'short_title', 'content', 'views', 'get_created_jalali', 'status']
     list_editable = ['status']
     search_fields = ['title']
 
