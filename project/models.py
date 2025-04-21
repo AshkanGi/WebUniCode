@@ -23,7 +23,7 @@ class Project(models.Model):
     budget = models.CharField(max_length=100, verbose_name='بودجه')
     project_manager = models.CharField(max_length=60, verbose_name='مدیر پروژه')
     place = models.CharField(max_length=100, verbose_name='محل')
-    website = models.URLField(max_length=200, verbose_name= 'وب سایت', blank=True, null=True)
+    website = models.URLField(max_length=200, verbose_name='وب سایت', blank=True, null=True)
     star = models.IntegerField(verbose_name='امتیاز')
     main_image = models.ImageField(upload_to='project', verbose_name='عکس اصلی')
     description = RichTextUploadingField(verbose_name='محتوای پروژه', default='')
