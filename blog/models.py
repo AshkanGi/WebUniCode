@@ -47,6 +47,7 @@ class Article(models.Model):
     description = RichTextUploadingField(verbose_name='محتوای مقاله')
     tags = models.ManyToManyField(Tag, blank=True, null=True, related_name='articles', verbose_name='برچسب مربوطه')
     thumbnail = models.ImageField(upload_to='images/articles', blank=True, null=True, verbose_name='تصویر مقاله')
+    alt = models.CharField(max_length=50, null=True, blank=True, verbose_name='توضیح عکس')
     status = models.CharField(choices=STATUS, max_length=10, default='draft', verbose_name='وضعیت')
     views = models.IntegerField(default=0, verbose_name='بازدید ها')
     created_at = models.DateTimeField(default=timezone.now, verbose_name='تاریخ ایجاد')
@@ -69,6 +70,7 @@ class Profile(models.Model):
                            verbose_name='بیوگرافی')
     image_profile = models.ImageField(upload_to='images/profiles', help_text='ارتفاع و عرض عکس بهتره 200 پیکسل باشد',
                                       blank=True, null=True, verbose_name='تصویر پروفایل')
+    alt = models.CharField(max_length=50, null=True, blank=True, verbose_name='توضیح عکس')
     social_instagram = models.CharField(max_length=250, null=True, blank=True, default='https://instagram.com/username',
                                         verbose_name='لینک اینستاگرام')
     social_telegram = models.CharField(max_length=250, null=True, blank=True, default='https://t.me/username',

@@ -26,7 +26,7 @@ class TagAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Article)
 class ArticleAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ['author', 'short_title', 'content', 'views', 'get_created_jalali', 'status']
+    list_display = ['author', 'short_title', 'alt', 'content', 'views', 'get_created_jalali', 'status']
     list_editable = ['status']
     search_fields = ['title']
 
@@ -44,7 +44,7 @@ class ArticleAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(models.Profile)
 class ProfileAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ['user', 'short_bio', 'show_image', 'get_created_jalali']
+    list_display = ['user', 'short_bio', 'show_image', 'alt', 'get_created_jalali']
     search_fields = ['title']
 
     def short_bio(self, obj):

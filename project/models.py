@@ -18,6 +18,7 @@ class Category(models.Model):
 class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='projects')
     slug = models.SlugField(max_length=150, unique=True, verbose_name='نامک')
+    content = models.TextField(max_length=200, null=True, blank=True, verbose_name='متا دیسکریپشن')
     name = models.CharField(max_length=100, verbose_name='نام مشتری')
     created_at = models.DateTimeField(default=timezone.now, verbose_name='تاریخ')
     budget = models.CharField(max_length=100, verbose_name='بودجه')
@@ -26,6 +27,7 @@ class Project(models.Model):
     website = models.URLField(max_length=200, verbose_name='وب سایت', blank=True, null=True)
     star = models.IntegerField(verbose_name='امتیاز')
     main_image = models.ImageField(upload_to='project', verbose_name='عکس اصلی')
+    alt = models.CharField(max_length=50, null=True, blank=True, verbose_name='توضیح عکس')
     description = RichTextUploadingField(verbose_name='محتوای پروژه', default='')
     publish = models.BooleanField(default=False, verbose_name='مجوز انشتار')
 

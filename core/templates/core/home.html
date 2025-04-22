@@ -492,7 +492,7 @@
                     <div class="col-md-4 filter-item cat{{ category.id }}">
                         <div class="project-item">
                             <div class="project-img">
-                                <img href="project/{{ project.slug }}" src="{{ project.main_image.url }}" alt="{{ project.title }}">
+                                <img href="project/{{ project.slug }}" src="{{ project.main_image.url }}" alt="{{ project.alt }}">
                             </div>
                             <div class="project-content">
                                 <div class="project-info">
@@ -525,7 +525,7 @@
             	<div class="col-md-6 col-lg-4">
                 <div class="team-item">
                     <div class="team-img">
-                        <img style="height: 450px; width: 400px" src="{{ member.image.url }}" alt="{{ member.full_name }}">
+                        <img style="height: 450px; width: 400px" src="{{ member.image.url }}" alt="{{ member.alt }}">
                     </div>
                     <div class="team-content">
                         <div class="team-bio">
@@ -557,7 +557,7 @@
                     <div class="testimonial-single">
                     <div class="testimonial-content">
                         <div class="testimonial-author-img">
-                            <img src="{{ customer.image.url }}" alt>
+                            <img src="{{ customer.image.url }}" alt="{{ customer.alt }}">
                         </div>
                         <div class="testimonial-author-info">
                             <h4>{{ customer.name }}</h4>
@@ -600,9 +600,9 @@
                     <div class="blog-item">
                         <div class="blog-item-img">
                             {% if article.thumbnail %}
-                                <img src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}" id="blog-img">
+                                <img src="{{ article.thumbnail.url }}" alt="{{ article.alt }}" id="blog-img">
                             {% else %}
-                                <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:6 }}" id="blog-img">
+                                <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.alt }}" id="blog-img">
                             {% endif %}
                         </div>
                         <div class="blog-item-info">

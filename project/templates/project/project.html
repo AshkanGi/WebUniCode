@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load jalali_tags %}
+{% block extra_head %}
+    <meta name="description" content="{{ project.content }}">
+{% endblock %}
 {% block content %}
     <div class="site-breadcrumb">
         <div class="container">
@@ -67,7 +70,7 @@
                     <div class="col-xl-8 col-lg-8">
                         <div class="project-details">
                             <div class="project-details-img mb-30">
-                                <img src="{{ project.main_image.url }}" width="800" height="500">
+                                <img src="{{ project.main_image.url }}" width="800" height="500" alt="{{ project.alt }}">
                             </div>
                             <br>
                             <br>

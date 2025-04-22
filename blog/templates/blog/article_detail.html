@@ -3,7 +3,7 @@
 {% load static %}
 {% load jalali_tags %}
 {% block extra_head %}
-    <meta name="description" content="{{ contact }}">
+    <meta name="description" content="{{ article.content }}">
 {% endblock %}
 {% block content %}
 <div class="site-breadcrumb">
@@ -22,7 +22,6 @@
     </div>
     <div class="hero-right-circles"></div>
 </div>
-
 <div class="blog-single-area pt-120 pb-120">
     <div class="container">
         <div class="row">
@@ -31,9 +30,9 @@
                     <div class="blog-single-content">
                         <div class="blog-thumb-img">
                             {% if article.thumbnail %}
-                                <img style="max-width: 100%;height: auto;display: block;" src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}" id="single-blog-image">
+                                <img style="max-width: 100%;height: auto;display: block;" src="{{ article.thumbnail.url }}" alt="{{ article.alt }}" id="single-blog-image">
                             {% else %}
-                                <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:6 }}" id="single-blog-image">
+                                <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.alt }}" id="single-blog-image">
                             {% endif %}
                         </div>
                         <div class="blog-info">
@@ -71,9 +70,9 @@
                                 <div class="blog-author">
                                     <div class="blog-author-img">
                                         {% if author_profile.image_profile %}
-                                            <img src="{{ author_profile.image_profile.url }}" alt>
+                                            <img src="{{ author_profile.image_profile.url }}" alt="{{ author_profile.alt }}">
                                         {% else %}
-                                            <img src="{% static "main/img/blog/image_profile_default.png" %}" alt>
+                                            <img src="{% static "main/img/blog/image_profile_default.png" %}" alt="{{ author_profile.alt }}">
                                         {% endif %}
                                     </div>
                                     <div class="author-info">
@@ -100,7 +99,6 @@
             </div>
             <div class="col-lg-4">
                 <aside class="sidebar">
-
                     <div class="widget search">
                         <h5 class="widget-title">جستجوی مقاله</h5>
                         <form action="{% url 'blog:search' %}" method="get" role="search" class="">
@@ -119,7 +117,6 @@
                             </label>
                         </form>
                     </div>
-
                     <div class="widget category">
                         <h5 class="widget-title">دسته بندی</h5>
                         <div class="category-list">
@@ -128,17 +125,15 @@
                             {% endfor %}
                         </div>
                     </div>
-
                     <div class="widget recent-post">
                         <h5 class="widget-title">مقالات اخیر</h5>
-
                         {% for article in latest_articles %}
                             <div class="recent-post-single">
                                 <div class="recent-post-img">
                                 {% if article.thumbnail %}
-                                    <img src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:4 }}">
+                                    <img src="{{ article.thumbnail.url }}" alt="{{ article.alt }}">
                                 {% else %}
-                                    <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:4 }}">
+                                    <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.alt }}">
                                 {% endif %}
                                 </div>
                                 <div class="recent-post-bio">
@@ -168,13 +163,11 @@
         </div>
     </div>
 </div>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const copyMsg = document.getElementById("copyMsg");
     copyMsg.style.display = "none";
 });
-
 document.getElementById("copyBtn").addEventListener("click", async () => {
     try {
         await navigator.clipboard.writeText(window.location.href);

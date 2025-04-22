@@ -46,9 +46,9 @@
                                         <div class="blog-item">
                                             <div class="blog-item-img">
                                                 {% if article.thumbnail %}
-                                                    <img src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}" id="blog-img">
+                                                    <img src="{{ article.thumbnail.url }}" alt="{{ article.alt }}" id="blog-img">
                                                 {% else %}
-                                                    <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:6 }}" id="blog-img">
+                                                    <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.alt }}" id="blog-img">
                                                 {% endif %}
                                             </div>
                                             <div class="blog-item-info">

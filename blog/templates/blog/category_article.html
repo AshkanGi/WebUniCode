@@ -2,10 +2,7 @@
 {% block title %}دسته بندی {{ category.title }}{% endblock %}
 {% load static %}
 {% load jalali_tags %}
-
-
 {% block content %}
-
     <div class="site-breadcrumb">
         <div class="container">
             <h2 class="breadcrumb-title">دسته بندی {{ category.title }}</h2>
@@ -22,7 +19,6 @@
         </div>
         <div class="hero-right-circles"></div>
     </div>
-
     <div class="blog-area py-120">
         <div class="container">
             <div class="row">
@@ -34,7 +30,6 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="widget search">
                     <h5 class="widget-title">جستجوی مقاله</h5>
                     <form action="{% url 'blog:search' %}" method="get" role="search" class="search-form" >
@@ -42,16 +37,15 @@
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
-
                 {% if articles %}
                     {% for article in articles %}
                         <div class="col-md-6 col-lg-4">
                             <div class="blog-item">
                                 <div class="blog-item-img">
                                     {% if article.thumbnail %}
-                                        <img src="{{ article.thumbnail.url }}" alt="{{ article.title|truncatewords:6 }}">
+                                        <img src="{{ article.thumbnail.url }}" alt="{{ article.alt }}">
                                     {% else %}
-                                        <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.title|truncatewords:6 }}">
+                                        <img src="{% static "main/img/blog/image_not_available.jpg" %}" alt="{{ article.alt }}">
                                     {% endif %}
                                 </div>
                                 <div class="blog-item-info">
@@ -77,9 +71,7 @@
                 {% else %}
                     <h2 style="text-align:center;">مقاله ای وجود ندارد</h2>
                 {% endif %}
-                
             </div>
         </div>
     </div>
-
 {% endblock %}

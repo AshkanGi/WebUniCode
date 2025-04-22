@@ -7,6 +7,7 @@ class Comment(models.Model):
     body = models.TextField(max_length=100, verbose_name='متن')
     star = models.IntegerField(verbose_name='امتیاز')
     image = models.ImageField(upload_to='image/customer', verbose_name='عکس')
+    alt = models.CharField(max_length=50, null=True, blank=True, verbose_name='توضیح عکس')
     publish = models.BooleanField(default=False, verbose_name='مجوز قرار دادن')
 
     class Meta:
