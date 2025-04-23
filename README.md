@@ -1,14 +1,14 @@
 WebUniCode
 
-WebUniCode is the official website of our team, specializing in web design and development.
+WebUniCode is the official portfolio website of our creative team, specializing in web design, development, and digital experiences.
 
-At WebUniCode, we help brands build a strong digital presence through custom web design, SEO, and modern development practices. This site serves as a portfolio and communication hub, showcasing our services, projects, blog articles, and ways to get in touch.
-✨ What We Offer
+We craft elegant, fast, and user-focused websites that elevate brands and drive results. This platform showcases who we are, what we offer, and how we can bring your online vision to life.
+✨ What We Do Best
 
-    Custom website design (personal, corporate, e-commerce, etc.)
+    🎨 Custom Web Design — tailored websites for businesses, creatives, and startups
 
-    Technical implementation using the latest web technologies
+    ⚙️ Modern Development — clean, scalable code using the latest technologies
 
-    SEO and website optimization for search engines
+    🚀 SEO Optimization — built-in strategies to improve visibility and ranking
 
-    Ongoing support and professional maintenance
+    🔧 Ongoing Support — maintenance, updates, and technical assistance
