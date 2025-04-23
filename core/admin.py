@@ -54,4 +54,4 @@ class ContactUsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
     @admin.display(description='تاریخ ارسال', ordering='date_send')
     def get_date_send_jalali(self, obj):
-        return datetime2jalali(obj.date_send).strftime('%a, %d %m %Y')
+        return datetime2jalali(obj.created_at).strftime('%d/%m/%Y')
